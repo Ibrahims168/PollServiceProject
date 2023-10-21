@@ -38,7 +38,7 @@ public class PollAnswerController {
     @GetMapping("/users-answered-count/{questionId}")
     public ResponseEntity<String> getUsersAnsweredCountForQuestion(@PathVariable Long questionId) {
         Long userCount = pollAnswerService.countUniqueUsersByQuestionId(questionId);
-        String responseMessage = "Total users who answered question with ID " + questionId + " is : " + userCount + " User";
+        String responseMessage = "Total users who answered question with ID " + questionId + " is : " + userCount;
         return ResponseEntity.ok(responseMessage);
     }
     @GetMapping("/user-answers/{userId}")
@@ -48,7 +48,7 @@ public class PollAnswerController {
     @GetMapping("/user-answer-count/{userId}")
     public ResponseEntity<String> getUserAnswerCount(@PathVariable Long userId) {
         long answerCount = pollAnswerService.getAnswerCountByUserId(userId);
-        String responseMessage = "Total answers given by user with ID " + userId + " is : " + answerCount + " Answers";
+        String responseMessage = "Total answers given by user with ID " + userId + " is : " + answerCount;
         return ResponseEntity.ok(responseMessage);
     }
     @DeleteMapping("/delete-user-answers/{userId}")
